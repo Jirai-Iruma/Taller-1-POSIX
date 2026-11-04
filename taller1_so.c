@@ -19,11 +19,18 @@ sem_t semB_C; // Notifica a C que B escribió Cifra 2
 void* HiloA(void* arg) {
     int cifra_a = 15;
 
+<<<<<<< HEAD
     pthread_mutex_lock(&mutex_variable);
     variable_compartida = cifra_a;
     pthread_mutex_unlock(&mutex_variable);      
 
     sem_post(&semA_C);
+=======
+    // TO-DO Proteger escritura con Mutex e inicializar variable compartida
+
+
+    // TO-DO Notificar a Hilo C
+>>>>>>> origin/main
     return NULL;
 }
 
