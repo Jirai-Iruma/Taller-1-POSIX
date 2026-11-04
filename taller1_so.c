@@ -41,19 +41,30 @@ void* HiloB(void* arg) {
     return NULL;
 }
 
-// --- INTEGRANTE 3: Hilo C ---
+
+// --- INTEGRANTE 3 Victoria: Hilo C ---
 void* HiloC(void* arg) {
     int cifra1 = 0, cifra2 = 0;
+    printf("[Hilo C Dev: Victoria] Paso 1: Iniciando...\n");
+    
+    sem_wait(&semA_C); 
+    
+    pthread_mutex_lock(&mutex_variable); 
+    cifra1 = variable_compartida; 
+    variable_compartida = 0; 
+    pthread_mutex_unlock(&mutex_variable); 
 
-    // TO-DO --- PARTE 1: Procesar Cifra 1 ---
+    
+    sem_post(&semC_B); 
 
+    
+    sem_wait(&semB_C); 
+    
+    pthread_mutex_lock(&mutex_variable); 
+    cifra2 = variable_compartida; 
+    pthread_mutex_unlock(&mutex_variable); 
 
-    // TO-DO Dar paso a Hilo B
-
-    // TO-DO --- PARTE 2: Procesar Cifra 2 y Consolidar ---
-
-
-    // Renderizado final
+    
     printf("\n================ RENDERIZADO DE RESULTADOS ================\n");
     printf("-> Cifra enviada por Hilo A: %d\n", cifra1);
     printf("-> Cifra enviada por Hilo B: %d\n", cifra2);
