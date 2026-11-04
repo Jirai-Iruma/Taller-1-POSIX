@@ -105,6 +105,8 @@ int main(int argc, char* argv[]) {
     sem_destroy(&semC_B);
     sem_destroy(&semB_C);
 
+
     printf("\n=== FIN DE LA EJECUCIÓN ===\n");
+    printf("\n=== GRACIAS===\n");
     return 0;
 }
