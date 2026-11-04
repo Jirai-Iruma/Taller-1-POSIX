@@ -10,7 +10,7 @@ sem_t semBC;
 
 // Hilo A: Desarrollado por Integrante 1
 void* HiloA(void* arg) {
-    printf("[Hilo A] - Dev: Francesco Merola]");
+    printf("[Hilo A] - Dev: Francesco Merola]\n");
     printf("[Hilo A] Paso 1: Iniciando preparación de datos...\n");
     sleep(1); // Simula tiempo de procesamiento (1 segundo)
     printf("[Hilo A] Paso 1: Datos listos. Liberando Hilo B.\n");
@@ -22,6 +22,7 @@ void* HiloA(void* arg) {
 
 // Hilo B: Desarrollado por Integrante 2
 void* HiloB(void* arg) {
+    printf("[Hilo B] - Dev: Jaiverson Bonillo]\n");
     // Esperar señal de A (P / Wait)
     sem_wait(&semAB);
     
@@ -36,6 +37,7 @@ void* HiloB(void* arg) {
 
 // Hilo C: Desarrollado por Integrante 3
 void* HiloC(void* arg) {
+    printf("[Hilo C] - Dev: Victoria Carmona]\n");
     // Esperar señal de B (P / Wait)
     sem_wait(&semBC);
     
@@ -50,6 +52,7 @@ int main(int argc, char *argv[]) {
     pthread_t hA, hB, hC;
 
     // Inicializar semáforos POSIX
+    // sem_init(sem, pshared=0 [local al proceso], valor_inicial=0)
     // sem_init(sem, pshared=0 [local al proceso], valor_inicial=0)
     sem_init(&semAB, 0, 0);
     sem_init(&semBC, 0, 0);
