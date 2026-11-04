@@ -89,7 +89,7 @@ int main(int argc, char* argv[]) {
 
     printf("=== INICIO DE LA PRUEBA DE FUEGO ===\n\n");
 
-    // Creación de hilos
+    // Creación de   hilos
     pthread_create(&hA, NULL, HiloA, NULL);
     pthread_create(&hB, NULL, HiloB, NULL);
     pthread_create(&hC, NULL, HiloC, NULL);
