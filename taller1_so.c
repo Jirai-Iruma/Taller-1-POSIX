@@ -31,16 +31,12 @@ void* HiloA(void* arg) {
 void* HiloB(void* arg) {
     int cifra_b = 25;
 
-    // Esperar a que Hilo C haya leído Cifra 1 y limpiado la variable
-    sem_wait(&semC_B);
+    // TO-DO Esperar a que Hilo C haya leído Cifra 1 y limpiado la variable
 
-    // Proteger escritura con Mutex y actualizar variable compartida
-    pthread_mutex_lock(&mutex_variable);
-    variable_compartida = cifra_b;
-    pthread_mutex_unlock(&mutex_variable);
+    // TO-DO Proteger escritura con Mutex y actualizar variable compartida
 
-    // Notificar a Hilo C que la Cifra 2 está lista
-    sem_post(&semB_C);
+
+    // TO-DO Notificar a Hilo C
 
     return NULL;
 }
@@ -81,29 +77,19 @@ void* HiloC(void* arg) {
 int main(int argc, char* argv[]) {
     pthread_t hA, hB, hC;
 
-    // Inicialización de Mutex y Semáforos
-    pthread_mutex_init(&mutex_variable, NULL);
-    sem_init(&semA_C, 0, 0);
-    sem_init(&semC_B, 0, 0);
-    sem_init(&semB_C, 0, 0);
+    // TO-DO Inicialización de Mutex y Semáforos
+
 
     printf("=== INICIO DE LA PRUEBA DE FUEGO ===\n\n");
 
-    // Creación de hilos
-    pthread_create(&hA, NULL, HiloA, NULL);
-    pthread_create(&hB, NULL, HiloB, NULL);
-    pthread_create(&hC, NULL, HiloC, NULL);
+    // TO-DO Creación de hilos
 
-    // Esperar a que terminen todos los hilos
-    pthread_join(hA, NULL);
-    pthread_join(hB, NULL);
-    pthread_join(hC, NULL);
 
-    // Destrucción de recursos (Mutex y Semáforos)
-    pthread_mutex_destroy(&mutex_variable);
-    sem_destroy(&semA_C);
-    sem_destroy(&semC_B);
-    sem_destroy(&semB_C);
+    // TO-DO Esperar a que terminen
+
+
+    // TO-DO Destrucción de recursos
+
 
     printf("\n=== FIN DE LA EJECUCIÓN ===\n");
     return 0;
