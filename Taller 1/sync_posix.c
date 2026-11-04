@@ -10,6 +10,7 @@ sem_t semBC;
 
 // Hilo A: Desarrollado por Integrante 1
 void* HiloA(void* arg) {
+    printf("[Hilo A] - Dev: Francesco Merola]");
     printf("[Hilo A] Paso 1: Iniciando preparación de datos...\n");
     sleep(1); // Simula tiempo de procesamiento (1 segundo)
     printf("[Hilo A] Paso 1: Datos listos. Liberando Hilo B.\n");
